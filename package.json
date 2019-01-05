@@ -1,0 +1,24 @@
+{
+  "name": "firestore",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ahmednet2020",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^5.7.2",
+    "typescript": "^3.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "gulp": "^4.0.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "live-server": "^1.2.1",
+    "tsify": "^4.0.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
