@@ -1,5 +1,6 @@
 import * as firebase from 'firebase/app'
 import 'firebase/firestore'
+import 'firebase/auth'
 const config = {
     apiKey: "AIzaSyC0VkeePFg3fwiPGslkMGbrontxUf5EcMA",
     authDomain: "book-list-777.firebaseapp.com",
@@ -9,6 +10,7 @@ const config = {
     messagingSenderId: "706385556623"
 };
 firebase.initializeApp(config)
-firebase.firestore().settings({ timestampsInSnapshots: true })
-console.log(firebase);
-export default firebase;
+const fireStore = firebase.firestore();
+fireStore.settings({ timestampsInSnapshots: true })
+const auth = firebase.auth();
+export { firebase, fireStore, auth }

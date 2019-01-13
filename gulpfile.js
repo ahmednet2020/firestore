@@ -6,9 +6,10 @@ const tsify = require("tsify");
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const babelify = require('babelify');
+const autoprefixer = require('autoprefixer');
 const ts = (cd) => {
   return browserify({
-    entries: ['./src/index.ts'],
+    entries: ['./src/ts/index.ts'],
     debug: true
   }).plugin(tsify)
     .transform(babelify,{
@@ -24,9 +25,20 @@ const ts = (cd) => {
     .pipe(gulp.dest('./public/js/'));
     cd();
 }
+const css = (cd) => {
+  return gulp.src('./src/sass/**/*.scss')
+    .pipe(plugins.sourcemaps.init())
+    .pipe(plugins.sass())
+    .on('error', plugins.sass.logError)
+    .pipe(plugins.postcss([autoprefixer({browsers: 'last 2 versions'})]))
+    .pipe(plugins.sourcemaps.write('./maps'))
+    .pipe(gulp.dest('./public/css/'));
+  cd()
+}
 const server = (cd) => {
   require('./server.js')
   cd()
 }
-gulp.watch('./src/**/*.ts',ts);
-exports.default = gulp.series(ts, server)
+gulp.watch('./src/ts/**/*.ts',ts);
+gulp.watch('./src/sass/**/*.s?ss',css);
+exports.default = gulp.series(ts, css, server)

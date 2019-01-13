@@ -1,0 +1,34 @@
+@import './var';
+
+*,
+*::before,
+*::after
+{
+	box-sizing: border-box;
+}
+.box
+{
+    background-color: #0f0;
+	width: 500px;
+	height: 200px;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	.box-item
+	{
+		flex: 0 0 200px;
+	}
+}
+@supports (display: grid) {
+  .box {
+    background-color: #F00;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    grid-gap: 10px;
+  }
+}
