@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "ahmednet2020",
   "license": "MIT",
+  "scripts":{
+  	"start": "gulp"
+  },
   "dependencies": {
     "firebase": "^5.7.2",
     "typescript": "^3.2.2"

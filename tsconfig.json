@@ -9,7 +9,8 @@
     "moduleResolution": "node",
     "rootDir": "src",
     "outDir": "public/js",
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules",
