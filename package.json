@@ -5,7 +5,8 @@
   "author": "ahmednet2020",
   "license": "MIT",
   "scripts":{
-  	"start": "gulp"
+  	"start": "gulp",
+    "functions": "firebase deploy --only functions"
   },
   "dependencies": {
     "firebase": "^5.7.2",

@@ -1,4 +1,4 @@
-import { firebase, fireStore, auth } from './firebaseConfig'
+import { fireBase, fireStore, auth } from './firebaseConfig'
 import { listBooks, newBook} from './var'
 import { listBooksfun } from './UIfunction'
 

@@ -1,6 +1,16 @@
-import { fireStore, auth } from './firebaseConfig'
-import { login, logout, signup } from './var'
+import { fireStore, auth, functions } from './firebaseConfig'
+import { login, logout, signup, newAdmin } from './var'
 import { AuthStatefun } from './UIfunction'
+
+// add admin cloud function
+newAdmin.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const adminEmail = newAdmin["email"].value;
+  const addAdminRole = functions.httpsCallable("addAdminRole");
+  addAdminRole({ email: adminEmail }).then(result => {
+    console.log(result);
+  });
+});
 
 // login
 login.addEventListener("submit", (e) => {
