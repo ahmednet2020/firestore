@@ -1,5 +1,5 @@
 import { fireStore  } from './firebaseConfig'
-import { listBooks ,login, logout, signup, state } from './var'
+import { listBooks ,login, logout, signup, state, adminElement } from './var'
 
 // show data function
 export function listBooksfun(docs) {
@@ -24,6 +24,14 @@ export function listBooksfun(docs) {
 // menua state
 export function AuthStatefun(user) {
 	if(user){
+		user.getIdTokenResult().then(token => {
+			const admin = token.claims.admin;
+			if(admin){
+				Array.prototype.map.call(adminElement, ele => {
+					ele.hidden = false;
+				} )
+			}
+		})
 		login.hidden = true;
 		signup.hidden = true;
 		logout.hidden = false;
@@ -40,5 +48,8 @@ export function AuthStatefun(user) {
 		login.hidden = false;
 		signup.hidden = false;
 		logout.hidden = true;
+		Array.from(adminElement).map(ele => {
+			ele.hidden = true;
+		})
 	}
 }

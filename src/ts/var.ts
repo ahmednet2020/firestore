@@ -5,3 +5,4 @@ export const signup = document.getElementById("signup") as HTMLFormElement
 export const state = document.getElementById("state") as HTMLDivElement
 export const logout = document.getElementById("logout") as HTMLButtonElement
 export const newAdmin = document.getElementById("newAdmin") as HTMLFormElement
+export const adminElement = document.getElementsByClassName("admin") as HTMLCollectionOf<HTMLDivElement>
