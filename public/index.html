@@ -8,6 +8,10 @@
 <body>
   <form id='newAdmin' class="admin">
     <input type="email" name="email" placeholder="email" required>
+    <select name="role">
+      <option value="admin" selected>admin</option>
+      <option value="user">user</option>
+    </select>
     <input type="submit" value="newAdmin" />
   </form>
   <div id='state'>
@@ -17,6 +21,7 @@
     <input type="email" name="email" placeholder="email" required>
     <input type="password" name="password" placeholder="password" required>
     <input type="submit" value="login" />
+    <input type="text" name="error" readonly value=''>
   </form>
   <form id='signup'>
     <input type="text" name="names" placeholder="name" required>
@@ -24,11 +29,13 @@
     <input type="email" name="email" placeholder="email" required>
     <input type="password" name="password" placeholder="password" required>
     <input type="submit" value="signup" />
+    <input type="text" name="error" readonly value=''>
   </form>
   <button type="button" id='logout'>logout</button>
   <form id='newBook' class="admin">
     <input type="text" name="name1" />
     <button type="submit">add</button>
+    <input type="text" name="error" readonly value=''>
   </form>
   <ul id='list-of-books' class="books">
   </ul>

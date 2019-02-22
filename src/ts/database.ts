@@ -6,7 +6,7 @@ import { listBooksfun } from './UIfunction'
 fireStore.collection('books').orderBy('name','asc').onSnapshot((docs) => {
 	listBooksfun(docs);
 }, err => {
-	console.log(err.message);
+	listBooks.textContent = err.message;
 })
 // add new book
 newBook.addEventListener('submit', (e:Event)=> {
@@ -17,5 +17,7 @@ newBook.addEventListener('submit', (e:Event)=> {
 		creatAt: new Date
 	}).then((doc) => {
 		newBook.reset();
-	}).catch((err) => console.log(err.message))
+	}).catch((err) =>{
+		newBook['error'].value = err.message;
+	})
 })

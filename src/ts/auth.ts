@@ -5,9 +5,11 @@ import { AuthStatefun } from './UIfunction'
 // add admin cloud function
 newAdmin.addEventListener('submit', (e) => {
   e.preventDefault();
-  const adminEmail = newAdmin["email"].value;
+  const email = newAdmin["email"].value;
+  const role = newAdmin["role"].value;
+  console.log({email, role});
   const addAdminRole = functions.httpsCallable("addAdminRole");
-  addAdminRole({ email: adminEmail }).then(result => {
+  addAdminRole({ email, role }).then(result => {
     console.log(result);
   });
 });
@@ -20,7 +22,7 @@ login.addEventListener("submit", (e) => {
 	auth.signInWithEmailAndPassword(email, password).then((e)=>{
 	 console.log('login');
 	}).catch(err => {
-		console.log(err)
+		login['error'].value = err.message;
 	})
 })
 // logout
@@ -44,7 +46,7 @@ signup.addEventListener("submit", (e) => {
 	}).then(data => {
 		console.log('signin sucess')
 	}).catch(err => {
-		console.log('signup fail')
+		signup['error'].value = err.message;
 	})
 })
 // realtime change auth state
